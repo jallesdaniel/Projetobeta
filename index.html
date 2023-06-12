@@ -1,0 +1,971 @@
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Marmitas Saudaveis - Experimente o melhor da alimentação saudável em cada marmita.</title>
+<script src="SpryAssets/SpryMenuBar.js" type="text/javascript"></script>
+<link href="SpryAssets/SpryMenuBarVertical.css" rel="stylesheet" type="text/css" />
+<style type="text/css">
+<!--
+.style1 {
+	color: #666666
+}
+-->
+</style>
+</head>
+<center>
+<body>
+<table width="987" border="0" align="center">
+  <tr>
+    <th width="190" height="180" background="img/logo02.png" scope="col">&nbsp;</th>
+    <th width="271" scope="col"><!--inicio barra-->
+      <nav class="navbar navbar-light bg-light">
+  <a class="navbar-brand"></a>
+  <form class="form-inline">
+    <input class="form-control mr-sm-2" type="search" placeholder="Pesquisar" aria-label="Pesquisar" />
+    <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Pesquisar</button>
+  </form>
+</nav><!--fim barra--></th>
+    <th width="552" scope="col"><table width="552" border="0" align="left">
+      <tr>
+        <th width="100" scope="col"><img src="img/local.jpg" width="100" height="100" /></th>
+        <th width="100" scope="col"><img src="img/whatss.jpg" width="100" height="100" /></th>
+        <th width="100" scope="col"><img src="img/carrinho.jpg" width="100" height="100" /></th>
+        <th width="100" scope="col"><img src="img/login.jpg" width="100" height="100" /></th>
+        <th width="602" scope="col"><ul id="MenuBar1" class="MenuBarVertical">
+          <li><a class="MenuBarItemSubmenu" href="#">Menu</a>
+              <ul>
+                <li><a href="#">Item 1.1</a></li>
+                <li><a href="#">Item 1.2</a></li>
+                <li><a href="#">Item 1.3</a></li>
+              </ul>
+          </li>
+          <li></li>
+          </ul>        </th>
+      </tr>
+    </table></th>
+  </tr>
+</table>
+<p class="style1">___________________________________________________________________________________________________________________________</p>
+  <div class="horizontal-bar"></div>
+  <tr>
+    <th align="center" scope="col">
+    
+    <!--inicio-->
+    
+<center>
+
+<head>
+  <style>
+    .carousel {
+      width: 700px;
+      height: 300px;
+      overflow: hidden;
+      position: relative;
+      margin: 0 auto;
+    }
+
+    .carousel-inner {
+      width: 100%;
+      height: 100%;
+      display: flex;
+    }
+
+    .carousel-item {
+      flex: 0 0 100%;
+      height: 100%;
+      transition: transform 0.5s ease-in-out;
+    }
+
+    .carousel-item img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .carousel-controls {
+      position: absolute;
+      top: 50%;
+      left: 0;
+      right: 0;
+      transform: translateY(-50%);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 0 20px;
+    }
+
+    .carousel-controls button {
+      background-color: transparent;
+      border: none;
+      color: #fff;
+      font-size: 24px;
+      cursor: pointer;
+      outline: none;
+    }
+
+    .carousel-dots {
+      position: absolute;
+      bottom: 20px;
+      left: 0;
+      right: 0;
+      display: flex;
+      justify-content: center;
+    }
+
+    .carousel-dots button {
+      background-color: #ccc;
+      border: none;
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      margin: 0 5px;
+      cursor: pointer;
+      outline: none;
+    }
+
+    .carousel-dots button.active {
+      background-color: #fff;
+    }
+  </style>
+</head>
+<body>
+  <div class="carousel">
+    <div class="carousel-inner">
+      <div class="carousel-item"><img src="img/slide/01.jpg" alt="Image 1" /></div>
+      <div class="carousel-item">
+        <img src="img/slide/02.jpg" alt="Image 2">      </div>
+      <div class="carousel-item">
+        <img src="img/slide/03.jpg" alt="Image 3">      </div>
+    </div>
+    <div class="carousel-controls">
+      <button class="carousel-control prev" onclick="moveToPrevItem()">&#10094;</button>
+      <button class="carousel-control next" onclick="moveToNextItem()">&#10095;</button>
+    </div>
+    <div class="carousel-dots">
+      <button class="dot" onclick="goToItem(0)"></button>
+      <button class="dot" onclick="goToItem(1)"></button>
+      <button class="dot" onclick="goToItem(2)"></button>
+    </div>
+  </div>
+
+  <p>
+    <script>
+    const carousel = document.querySelector('.carousel');
+    const carouselInner = carousel.querySelector('.carousel-inner');
+    const carouselItems = carousel.querySelectorAll('.carousel-item');
+    const carouselControls = carousel.querySelector('.carousel-controls');
+    const carouselPrevBtn = carouselControls.querySelector('.prev');
+    const carouselNextBtn = carouselControls.querySelector('.next');
+    const carouselDots = carousel.querySelector('.carousel-dots');
+    const carouselDotBtns = carouselDots.querySelectorAll('.dot');
+
+    let currentIndex = 0;
+
+    function moveToNextItem() {
+      currentIndex = (currentIndex + 1) % carouselItems.length;
+      moveCarousel();
+    }
+
+    function moveToPrevItem() {
+      currentIndex = (currentIndex - 1 + carouselItems.length) % carouselItems.length;
+      moveCarousel();
+    }
+
+    function goToItem(index) {
+      currentIndex = index;
+      moveCarousel();
+    }
+
+    function moveCarousel() {
+      const translateX = -currentIndex * 100;
+      carouselInner.style.transform = `translateX(${translateX}%)`;
+
+      updateActiveDot();
+      updateCarouselControls();
+    }
+
+    function updateActiveDot() {
+      carouselDotBtns.forEach((dot, index) => {
+        dot.classList.toggle('active', index === currentIndex);
+      });
+    }
+
+    function updateCarouselControls() {
+      carouselPrevBtn.disabled = currentIndex === 0;
+      carouselNextBtn.disabled = currentIndex === carouselItems.length - 1;
+    }
+
+    carouselPrevBtn.addEventListener('click', moveToPrevItem);
+    carouselNextBtn.addEventListener('click', moveToNextItem);
+
+    carouselDotBtns.forEach((dot, index) => {
+      dot.addEventListener('click', () => goToItem(index));
+    });
+
+    moveCarousel();
+  </script>
+  </p>
+  <center>
+<table width="906" height="161" border="0" cellpadding="10">
+  <tr>
+    <th height="155" scope="col"><div align="justify"> As marmitas saudáveis são uma opção prática e nutritiva para quem busca uma alimentação equilibrada, oferecendo refeições preparadas com ingredientes frescos e selecionados.</div></th>
+    <th scope="col"><div align="justify">A variedade de marmitas saudáveis disponíveis permite atender às necessidades alimentares de diferentes pessoas, desde vegetarianos e veganos até aqueles com restrições alimentares específicas, promovendo uma alimentação inclusiva e balanceada.</div></th>
+    <th scope="col"><div align="justify">Com as marmitas saudáveis, é possível controlar de forma consciente a   qualidade e a quantidade dos alimentos consumidos, contribuindo para uma   rotina alimentar mais saudável e auxiliando no alcance de metas   relacionadas à perda de peso, ganho de energia ou manutenção da saúde.</div></th>
+  </tr>
+</table>
+
+</center>   </p>
+<table width="667" border="0" cellpadding="5">
+  <tr>
+    <th width="32" scope="col"><p><img src="img/produtos/alcatra.PNG" alt="" width="259" height="263" /></p>
+        <p>Alcatra ao molho roti, batata rústica e arroz a grega 300g  </p>
+        <p> R$ 30,00</p>
+        <p>  
+          <style>
+    .produto {
+      margin-bottom: 10px;
+    }
+  </style>
+  <script>
+    function adicionarProduto(element) {
+      var quantidadeSpan = element.parentNode.querySelector('.quantidade');
+      var quantidade = parseInt(quantidadeSpan.textContent);
+      quantidade++;
+      quantidadeSpan.textContent = quantidade;
+    }
+
+    function removerProduto(element) {
+      var quantidadeSpan = element.parentNode.querySelector('.quantidade');
+      var quantidade = parseInt(quantidadeSpan.textContent);
+      if (quantidade > 0) {
+        quantidade--;
+        quantidadeSpan.textContent = quantidade;
+      }
+    }
+  </script>
+        <div class="produto">
+    <button type="button" onclick="removerProduto(this)">-</button>
+  <span class="quantidade">0</span>
+  <button type="button" onclick="adicionarProduto(this)">+<br>
+  </button>
+  </div>
+
+  <input type="submit" value="Comprar"></p></th>
+    <th width="1" scope="col"><p><img src="img/produtos/arroz.PNG" width="261" height="260" /></p>
+        <p>Arroz de açafrão com frango deliciosa200g</p>
+        <p> R$ 15,00</p>
+        <p>
+          <style>
+    .produto {
+      margin-bottom: 10px;
+    }
+          </style>
+          <script>
+    function adicionarProduto(element) {
+      var quantidadeSpan = element.parentNode.querySelector('.quantidade');
+      var quantidade = parseInt(quantidadeSpan.textContent);
+      quantidade++;
+      quantidadeSpan.textContent = quantidade;
+    }
+
+    function removerProduto(element) {
+      var quantidadeSpan = element.parentNode.querySelector('.quantidade');
+      var quantidade = parseInt(quantidadeSpan.textContent);
+      if (quantidade > 0) {
+        quantidade--;
+        quantidadeSpan.textContent = quantidade;
+      }
+    }
+          </script>
+</p>
+        <div class="produto">
+          <button type="button" onclick="removerProduto(this)">-</button>
+          <span class="quantidade">0</span>
+          <button type="button" onclick="adicionarProduto(this)">+<br />
+          </button>
+        </div>
+        <input type="submit" value="Comprar" />
+        </p></th>
+    <th width="1" scope="col"><p><img src="img/produtos/berijela.PNG" width="262" height="262" /></p>
+        <p>Berinjela recheada com frango e creme de ricota 300g    </p>
+        <p> R$ 20,00</p>
+        <p>
+          <style>
+    .produto {
+      margin-bottom: 10px;
+    }
+          </style>
+          <script>
+    function adicionarProduto(element) {
+      var quantidadeSpan = element.parentNode.querySelector('.quantidade');
+      var quantidade = parseInt(quantidadeSpan.textContent);
+      quantidade++;
+      quantidadeSpan.textContent = quantidade;
+    }
+
+    function removerProduto(element) {
+      var quantidadeSpan = element.parentNode.querySelector('.quantidade');
+      var quantidade = parseInt(quantidadeSpan.textContent);
+      if (quantidade > 0) {
+        quantidade--;
+        quantidadeSpan.textContent = quantidade;
+      }
+    }
+          </script>
+</p>
+        <div class="produto">
+          <button type="button" onclick="removerProduto(this)">-</button>
+          <span class="quantidade">0</span>
+          <button type="button" onclick="adicionarProduto(this)">+<br />
+          </button>
+        </div>
+        <input type="submit" value="Comprar" />
+        </p></th>
+    <th width="573" scope="col"><p><img src="img/produtos/bobo.PNG" width="262" height="257" /></p>
+        <p>Berinjela recheada com frango e creme de ricota 300g   </p>
+        <p> R$ 20,00</p>
+        <p>
+          <style>
+    .produto {
+      margin-bottom: 10px;
+    }
+          </style>
+          <script>
+    function adicionarProduto(element) {
+      var quantidadeSpan = element.parentNode.querySelector('.quantidade');
+      var quantidade = parseInt(quantidadeSpan.textContent);
+      quantidade++;
+      quantidadeSpan.textContent = quantidade;
+    }
+
+    function removerProduto(element) {
+      var quantidadeSpan = element.parentNode.querySelector('.quantidade');
+      var quantidade = parseInt(quantidadeSpan.textContent);
+      if (quantidade > 0) {
+        quantidade--;
+        quantidadeSpan.textContent = quantidade;
+      }
+    }
+          </script>
+</p>
+        <div class="produto">
+          <button type="button" onclick="removerProduto(this)">-</button>
+          <span class="quantidade">0</span>
+          <button type="button" onclick="adicionarProduto(this)">+<br />
+          </button>
+        </div>
+        <input type="submit" value="Comprar" />
+        </p></th>
+  </tr>
+</table>
+<table width="667" border="0" cellpadding="5">
+  <tr>
+    <th width="32" scope="col"><p><img src="img/produtos/canja.PNG" width="265" height="264" /></p>
+        <p>Canja com salsinha fina com cenoura 320g </p>
+        <p> R$ 18,50 </p>
+        <p>
+        <style>
+    .produto {
+      margin-bottom: 10px;
+    }
+        </style>
+        <script>
+    function adicionarProduto(element) {
+      var quantidadeSpan = element.parentNode.querySelector('.quantidade');
+      var quantidade = parseInt(quantidadeSpan.textContent);
+      quantidade++;
+      quantidadeSpan.textContent = quantidade;
+    }
+
+    function removerProduto(element) {
+      var quantidadeSpan = element.parentNode.querySelector('.quantidade');
+      var quantidade = parseInt(quantidadeSpan.textContent);
+      if (quantidade > 0) {
+        quantidade--;
+        quantidadeSpan.textContent = quantidade;
+      }
+    }
+        </script>
+</p>
+      <div class="produto">
+        <button type="button" onclick="removerProduto(this)">-</button>
+        <span class="quantidade">0</span>
+        <button type="button" onclick="adicionarProduto(this)">+<br />
+        </button>
+      </div>
+      <input type="submit" value="Comprar" />
+      </p></th>
+    <th width="1" scope="col"><p><img src="img/produtos/carne.PNG" width="261" height="263" /></p>
+        <p>Carne de Panela na cerveja + Mix de legumes 250g    </p>
+        <p> R$ 23,50</p>
+        <p>
+        <style>
+    .produto {
+      margin-bottom: 10px;
+    }
+        </style>
+        <script>
+    function adicionarProduto(element) {
+      var quantidadeSpan = element.parentNode.querySelector('.quantidade');
+      var quantidade = parseInt(quantidadeSpan.textContent);
+      quantidade++;
+      quantidadeSpan.textContent = quantidade;
+    }
+
+    function removerProduto(element) {
+      var quantidadeSpan = element.parentNode.querySelector('.quantidade');
+      var quantidade = parseInt(quantidadeSpan.textContent);
+      if (quantidade > 0) {
+        quantidade--;
+        quantidadeSpan.textContent = quantidade;
+      }
+    }
+        </script>
+</p>
+      <div class="produto">
+        <button type="button" onclick="removerProduto(this)">-</button>
+        <span class="quantidade">0</span>
+        <button type="button" onclick="adicionarProduto(this)">+<br />
+        </button>
+      </div>
+      <input type="submit" value="Comprar" />
+      </p></th>
+    <th width="1" scope="col"><p><img src="img/produtos/carnepure.PNG" width="262" height="260" /></p>
+        <p>Carne de Panela na cerveja + Purê de mandioquinha   </p>
+        <p> R$ 23,00</p>
+        <p>
+        <style>
+    .produto {
+      margin-bottom: 10px;
+    }
+        </style>
+        <script>
+    function adicionarProduto(element) {
+      var quantidadeSpan = element.parentNode.querySelector('.quantidade');
+      var quantidade = parseInt(quantidadeSpan.textContent);
+      quantidade++;
+      quantidadeSpan.textContent = quantidade;
+    }
+
+    function removerProduto(element) {
+      var quantidadeSpan = element.parentNode.querySelector('.quantidade');
+      var quantidade = parseInt(quantidadeSpan.textContent);
+      if (quantidade > 0) {
+        quantidade--;
+        quantidadeSpan.textContent = quantidade;
+      }
+    }
+        </script>
+</p>
+      <div class="produto">
+        <button type="button" onclick="removerProduto(this)">-</button>
+        <span class="quantidade">0</span>
+        <button type="button" onclick="adicionarProduto(this)">+<br />
+        </button>
+      </div>
+      <input type="submit" value="Comprar" />
+      </p></th>
+    <th width="573" scope="col"><p><img src="img/produtos/carnepanela.PNG" width="264" height="261" /></p>
+        <p>Carne de panela na cerveja 150g  Arroz com brócolis     </p>
+        <p> R$ 22,50</p>
+        <p>
+        <style>
+    .produto {
+      margin-bottom: 10px;
+    }
+        </style>
+        <script>
+    function adicionarProduto(element) {
+      var quantidadeSpan = element.parentNode.querySelector('.quantidade');
+      var quantidade = parseInt(quantidadeSpan.textContent);
+      quantidade++;
+      quantidadeSpan.textContent = quantidade;
+    }
+
+    function removerProduto(element) {
+      var quantidadeSpan = element.parentNode.querySelector('.quantidade');
+      var quantidade = parseInt(quantidadeSpan.textContent);
+      if (quantidade > 0) {
+        quantidade--;
+        quantidadeSpan.textContent = quantidade;
+      }
+    }
+        </script>
+</p>
+      <div class="produto">
+        <button type="button" onclick="removerProduto(this)">-</button>
+        <span class="quantidade">0</span>
+        <button type="button" onclick="adicionarProduto(this)">+<br />
+        </button>
+      </div>
+      <input type="submit" value="Comprar" />
+      </p></th>
+  </tr>
+</table>
+<table width="667" border="0" cellpadding="5">
+  <tr>
+    <th width="32" scope="col"><p><img src="img/produtos/carnenapanela.PNG" width="261" height="262" /></p>
+        <p>Carne de panela na cerveja, purê de mandioquinha  300g  </p>
+        <p> R$ 25,00</p>
+        <p>
+        <style>
+    .produto {
+      margin-bottom: 10px;
+    }
+        </style>
+        <script>
+    function adicionarProduto(element) {
+      var quantidadeSpan = element.parentNode.querySelector('.quantidade');
+      var quantidade = parseInt(quantidadeSpan.textContent);
+      quantidade++;
+      quantidadeSpan.textContent = quantidade;
+    }
+
+    function removerProduto(element) {
+      var quantidadeSpan = element.parentNode.querySelector('.quantidade');
+      var quantidade = parseInt(quantidadeSpan.textContent);
+      if (quantidade > 0) {
+        quantidade--;
+        quantidadeSpan.textContent = quantidade;
+      }
+    }
+        </script>
+</p>
+      <div class="produto">
+        <button type="button" onclick="removerProduto(this)">-</button>
+        <span class="quantidade">0</span>
+        <button type="button" onclick="adicionarProduto(this)">+<br />
+        </button>
+      </div>
+      <input type="submit" value="Comprar" />
+      </p></th>
+    <th width="1" scope="col"><p><img src="img/produtos/carnemoida.PNG" width="262" height="262" /></p>
+        <p>Carne moída, arroz e feijão carioca 300g   </p>
+        <p> R$ 24,00</p>
+        <p>
+        <style>
+    .produto {
+      margin-bottom: 10px;
+    }
+        </style>
+        <script>
+    function adicionarProduto(element) {
+      var quantidadeSpan = element.parentNode.querySelector('.quantidade');
+      var quantidade = parseInt(quantidadeSpan.textContent);
+      quantidade++;
+      quantidadeSpan.textContent = quantidade;
+    }
+
+    function removerProduto(element) {
+      var quantidadeSpan = element.parentNode.querySelector('.quantidade');
+      var quantidade = parseInt(quantidadeSpan.textContent);
+      if (quantidade > 0) {
+        quantidade--;
+        quantidadeSpan.textContent = quantidade;
+      }
+    }
+        </script>
+</p>
+      <div class="produto">
+        <button type="button" onclick="removerProduto(this)">-</button>
+        <span class="quantidade">0</span>
+        <button type="button" onclick="adicionarProduto(this)">+<br />
+        </button>
+      </div>
+      <input type="submit" value="Comprar" />
+      </p></th>
+    <th width="1" scope="col"><p><img src="img/produtos/ervilha.PNG" width="261" height="263" /></p>
+        <p>Carne moída, purê de abóbora e ervilha 300g   </p>
+        <p> R$ 26,00</p>
+        <p>
+        <style>
+    .produto {
+      margin-bottom: 10px;
+    }
+        </style>
+        <script>
+    function adicionarProduto(element) {
+      var quantidadeSpan = element.parentNode.querySelector('.quantidade');
+      var quantidade = parseInt(quantidadeSpan.textContent);
+      quantidade++;
+      quantidadeSpan.textContent = quantidade;
+    }
+
+    function removerProduto(element) {
+      var quantidadeSpan = element.parentNode.querySelector('.quantidade');
+      var quantidade = parseInt(quantidadeSpan.textContent);
+      if (quantidade > 0) {
+        quantidade--;
+        quantidadeSpan.textContent = quantidade;
+      }
+    }
+        </script>
+</p>
+      <div class="produto">
+        <button type="button" onclick="removerProduto(this)">-</button>
+        <span class="quantidade">0</span>
+        <button type="button" onclick="adicionarProduto(this)">+<br />
+        </button>
+      </div>
+      <input type="submit" value="Comprar" />
+      </p></th>
+    <th width="573" scope="col"><p><img src="img/produtos/file.PNG" width="262" height="263" /></p>
+        <p>Filé de frango grelhado + Purê de mandioquinha 200g  </p>
+        <p>R$ 18,00</p>
+        <p>
+        <style>
+    .produto {
+      margin-bottom: 10px;
+    }
+        </style>
+        <script>
+    function adicionarProduto(element) {
+      var quantidadeSpan = element.parentNode.querySelector('.quantidade');
+      var quantidade = parseInt(quantidadeSpan.textContent);
+      quantidade++;
+      quantidadeSpan.textContent = quantidade;
+    }
+
+    function removerProduto(element) {
+      var quantidadeSpan = element.parentNode.querySelector('.quantidade');
+      var quantidade = parseInt(quantidadeSpan.textContent);
+      if (quantidade > 0) {
+        quantidade--;
+        quantidadeSpan.textContent = quantidade;
+      }
+    }
+        </script>
+</p>
+      <div class="produto">
+        <button type="button" onclick="removerProduto(this)">-</button>
+        <span class="quantidade">0</span>
+        <button type="button" onclick="adicionarProduto(this)">+<br />
+        </button>
+      </div>
+      <input type="submit" value="Comprar" />
+      </p></th>
+  </tr>
+</table>
+<table width="667" border="0" cellpadding="5">
+  <tr>
+    <th width="32" scope="col"><p><img src="img/produtos/frangodesfiado.PNG" width="261" height="262" /></p>
+        <p>Frango desfiado + batata doce 200g </p>
+        <p> R$ 16,50</p>
+        <p>
+        <style>
+    .produto {
+      margin-bottom: 10px;
+    }
+        </style>
+        <script>
+    function adicionarProduto(element) {
+      var quantidadeSpan = element.parentNode.querySelector('.quantidade');
+      var quantidade = parseInt(quantidadeSpan.textContent);
+      quantidade++;
+      quantidadeSpan.textContent = quantidade;
+    }
+
+    function removerProduto(element) {
+      var quantidadeSpan = element.parentNode.querySelector('.quantidade');
+      var quantidade = parseInt(quantidadeSpan.textContent);
+      if (quantidade > 0) {
+        quantidade--;
+        quantidadeSpan.textContent = quantidade;
+      }
+    }
+        </script>
+</p>
+      <div class="produto">
+        <button type="button" onclick="removerProduto(this)">-</button>
+        <span class="quantidade">0</span>
+        <button type="button" onclick="adicionarProduto(this)">+<br />
+        </button>
+      </div>
+      <input type="submit" value="Comprar" />
+      </p></th>
+    <th width="1" scope="col"><p><img src="img/produtos/frangob.PNG" width="261" height="261" /></p>
+        <p>Frango desfiado + Purê de batata doce </p>
+        <p>R$ 16,50</p>
+        <p>
+        <style>
+    .produto {
+      margin-bottom: 10px;
+    }
+        </style>
+        <script>
+    function adicionarProduto(element) {
+      var quantidadeSpan = element.parentNode.querySelector('.quantidade');
+      var quantidade = parseInt(quantidadeSpan.textContent);
+      quantidade++;
+      quantidadeSpan.textContent = quantidade;
+    }
+
+    function removerProduto(element) {
+      var quantidadeSpan = element.parentNode.querySelector('.quantidade');
+      var quantidade = parseInt(quantidadeSpan.textContent);
+      if (quantidade > 0) {
+        quantidade--;
+        quantidadeSpan.textContent = quantidade;
+      }
+    }
+        </script>
+</p>
+      <div class="produto">
+        <button type="button" onclick="removerProduto(this)">-</button>
+        <span class="quantidade">0</span>
+        <button type="button" onclick="adicionarProduto(this)">+<br />
+        </button>
+      </div>
+      <input type="submit" value="Comprar" />
+      </p></th>
+    <th width="1" scope="col"><p><img src="img/produtos/frangomix.PNG" width="262" height="261" /></p>
+        <p>Frango desfiado com mix legumes </p>
+        <p> R$ 17,50</p>
+        <p>
+        <style>
+    .produto {
+      margin-bottom: 10px;
+    }
+        </style>
+        <script>
+    function adicionarProduto(element) {
+      var quantidadeSpan = element.parentNode.querySelector('.quantidade');
+      var quantidade = parseInt(quantidadeSpan.textContent);
+      quantidade++;
+      quantidadeSpan.textContent = quantidade;
+    }
+
+    function removerProduto(element) {
+      var quantidadeSpan = element.parentNode.querySelector('.quantidade');
+      var quantidade = parseInt(quantidadeSpan.textContent);
+      if (quantidade > 0) {
+        quantidade--;
+        quantidadeSpan.textContent = quantidade;
+      }
+    }
+        </script>
+</p>
+      <div class="produto">
+        <button type="button" onclick="removerProduto(this)">-</button>
+        <span class="quantidade">0</span>
+        <button type="button" onclick="adicionarProduto(this)">+<br />
+        </button>
+      </div>
+      <input type="submit" value="Comprar" />
+      </p></th>
+    <th width="573" scope="col"><p><img src="img/produtos/frangocreme.PNG" width="263" height="260" /></p>
+        <p>Frango grelhado, creme de milho e </p>
+        <p> R$ 19,00</p>
+        <p>
+        <style>
+    .produto {
+      margin-bottom: 10px;
+    }
+        </style>
+        <script>
+    function adicionarProduto(element) {
+      var quantidadeSpan = element.parentNode.querySelector('.quantidade');
+      var quantidade = parseInt(quantidadeSpan.textContent);
+      quantidade++;
+      quantidadeSpan.textContent = quantidade;
+    }
+
+    function removerProduto(element) {
+      var quantidadeSpan = element.parentNode.querySelector('.quantidade');
+      var quantidade = parseInt(quantidadeSpan.textContent);
+      if (quantidade > 0) {
+        quantidade--;
+        quantidadeSpan.textContent = quantidade;
+      }
+    }
+        </script>
+</p>
+      <div class="produto">
+        <button type="button" onclick="removerProduto(this)">-</button>
+        <span class="quantidade">0</span>
+        <button type="button" onclick="adicionarProduto(this)">+<br />
+        </button>
+      </div>
+      <input type="submit" value="Comprar" />
+      </p></th>
+  </tr>
+</table>
+<table width="667" border="0" cellpadding="5">
+  <tr>
+    <th width="32" scope="col"><p><img src="img/produtos/jantar.PNG" width="263" height="259" /></p>
+        <p>Jantar Fitness 14 Dias 10% OFF de</p>
+        <p> R$ 329,00 por R$ 296,10</p>
+        <p>
+        <style>
+    .produto {
+      margin-bottom: 10px;
+    }
+        </style>
+        <script>
+    function adicionarProduto(element) {
+      var quantidadeSpan = element.parentNode.querySelector('.quantidade');
+      var quantidade = parseInt(quantidadeSpan.textContent);
+      quantidade++;
+      quantidadeSpan.textContent = quantidade;
+    }
+
+    function removerProduto(element) {
+      var quantidadeSpan = element.parentNode.querySelector('.quantidade');
+      var quantidade = parseInt(quantidadeSpan.textContent);
+      if (quantidade > 0) {
+        quantidade--;
+        quantidadeSpan.textContent = quantidade;
+      }
+    }
+        </script>
+</p>
+      <div class="produto">
+        <button type="button" onclick="removerProduto(this)">-</button>
+        <span class="quantidade">0</span>
+        <button type="button" onclick="adicionarProduto(this)">+<br />
+        </button>
+      </div>
+      <input type="submit" value="Comprar" />
+      </p></th>
+    <th width="1" scope="col"><p><img src="img/produtos/suco.PNG" width="265" height="260" /></p>
+        <p>Kit Detox 2 - 14 Refeições + 7 Sucos </p>
+        <p>R$ 389,20</p>
+        <p>
+        <style>
+    .produto {
+      margin-bottom: 10px;
+    }
+        </style>
+        <script>
+    function adicionarProduto(element) {
+      var quantidadeSpan = element.parentNode.querySelector('.quantidade');
+      var quantidade = parseInt(quantidadeSpan.textContent);
+      quantidade++;
+      quantidadeSpan.textContent = quantidade;
+    }
+
+    function removerProduto(element) {
+      var quantidadeSpan = element.parentNode.querySelector('.quantidade');
+      var quantidade = parseInt(quantidadeSpan.textContent);
+      if (quantidade > 0) {
+        quantidade--;
+        quantidadeSpan.textContent = quantidade;
+      }
+    }
+        </script>
+</p>
+      <div class="produto">
+        <button type="button" onclick="removerProduto(this)">-</button>
+        <span class="quantidade">0</span>
+        <button type="button" onclick="adicionarProduto(this)">+<br />
+        </button>
+      </div>
+      <input type="submit" value="Comprar" />
+      </p></th>
+    <th width="1" scope="col"><p><img src="img/produtos/suco01.PNG" width="262" height="259" /></p>
+        <p>Kit Detox 1 - 14 Refeições + 7 Sucos  </p>
+        <p>R$ 390,50</p>
+        <p>
+        <style>
+    .produto {
+      margin-bottom: 10px;
+    }
+        </style>
+        <script>
+    function adicionarProduto(element) {
+      var quantidadeSpan = element.parentNode.querySelector('.quantidade');
+      var quantidade = parseInt(quantidadeSpan.textContent);
+      quantidade++;
+      quantidadeSpan.textContent = quantidade;
+    }
+
+    function removerProduto(element) {
+      var quantidadeSpan = element.parentNode.querySelector('.quantidade');
+      var quantidade = parseInt(quantidadeSpan.textContent);
+      if (quantidade > 0) {
+        quantidade--;
+        quantidadeSpan.textContent = quantidade;
+      }
+    }
+        </script>
+</p>
+      <div class="produto">
+        <button type="button" onclick="removerProduto(this)">-</button>
+        <span class="quantidade">0</span>
+        <button type="button" onclick="adicionarProduto(this)">+<br />
+        </button>
+      </div>
+      <input type="submit" value="Comprar" />
+      </p></th>
+    <th width="573" scope="col"><p><img src="img/produtos/carnebranca.PNG" width="262" height="259" /></p>
+        <p>Almoço Emagrecimento Carne Branca  </p>
+        <p>R$ 173,00</p>
+        <p>
+        <style>
+    .produto {
+      margin-bottom: 10px;
+    }
+        </style>
+        <script>
+    function adicionarProduto(element) {
+      var quantidadeSpan = element.parentNode.querySelector('.quantidade');
+      var quantidade = parseInt(quantidadeSpan.textContent);
+      quantidade++;
+      quantidadeSpan.textContent = quantidade;
+    }
+
+    function removerProduto(element) {
+      var quantidadeSpan = element.parentNode.querySelector('.quantidade');
+      var quantidade = parseInt(quantidadeSpan.textContent);
+      if (quantidade > 0) {
+        quantidade--;
+        quantidadeSpan.textContent = quantidade;
+      }
+    }
+        </script>
+</p>
+      <div class="produto">
+        <button type="button" onclick="removerProduto(this)">-</button>
+        <span class="quantidade">0</span>
+        <button type="button" onclick="adicionarProduto(this)">+<br />
+        </button>
+      </div>
+      <input type="submit" value="Comprar" />
+      </p></th>
+  </tr>
+</table>
+<p>&nbsp;</p>
+  <table width="873" border="1" align="center" cellpadding="5">
+    <tr>
+      <th width="855" scope="col"><div>
+        <div>
+          <div>
+            <p>&quot;Experimente o melhor da alimentação saudável em cada marmita. Acompanhe-nos nas redes sociais para inspiração diária e atualizações:  Instagram: @marmitassaudaveis  Facebook: /marmitassaudaveisoficial  Twitter: @marmitassaudaveis  Contato: <a href="mailto:contato@marmitassaudaveis.com.br" target="_new">contato@marmitassaudaveis.com.br</a>&quot;</p>
+          </div>
+        </div>
+      </div></th>
+    </tr>
+  </table>
+  <div>© Copyright marmitassaudaveis. All Rights Reserved</div>
+  <div>Designed by marmitassaudaveis</div>
+  </body>
+
+
+
+</center>   
+    <!--fim-->    </th>
+  </tr>
+</table>
+<p>&nbsp;</p>
+<script type="text/javascript">
+<!--
+var MenuBar1 = new Spry.Widget.MenuBar("MenuBar1", {imgRight:"SpryAssets/SpryMenuBarRightHover.gif"});
+//-->
+  </script>
+</body>
+</center>
+
+</html>
